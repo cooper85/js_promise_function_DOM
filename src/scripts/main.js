@@ -14,10 +14,9 @@ export function waitFor(element, eventName) {
       resolve(
         `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
       );
-      element.removeEventListener(eventName, eventHandler);
     };
 
-    element.addEventListener(eventName, eventHandler);
+    element.addEventListener(eventName, eventHandler, { once: true });
   });
 }
 
